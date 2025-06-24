@@ -65,4 +65,17 @@ Game Rules:  Get as close to 21 as you can without going over!
         print(" ", self.dealer.show_hand())     # display dealer's cards
         print("Dealer's Hand =", self.dealer.hand_value())      # display dealer's cards value
 
-        
+    def evaluate_winner(self):
+        player_value = self.player.hand_value()
+        dealer_value = self.dealer.hand_value()
+
+        if player_value > 21:
+            print("\n--- Player busts! Dealer wins. ---")
+        elif dealer_value > 21:
+            print("\n--- Dealer busts! You win! ---")
+        elif dealer_value > player_value:
+            print("\n--- Dealer wins! ---")
+        elif dealer_value < player_value:
+            print("\n--- Player has blackjack! You win! ---")
+        else:
+            print("\nIts a tie!")
