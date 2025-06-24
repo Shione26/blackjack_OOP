@@ -14,3 +14,6 @@ class Deck:
     
     def shuffle(self):
         random.shuffle(self._cards)
+
+    def deal(self): 
+        return self._cards.pop()    # removes the card and returns it
