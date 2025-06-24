@@ -1,5 +1,6 @@
 from deck_class import Deck
 from person_class import Player, Dealer
+import time
 
 class Game:
     def __init__(self):
@@ -45,6 +46,14 @@ Game Rules:  Get as close to 21 as you can without going over!
         # dealer's turn
         while self.dealer.hand_value() < 17:    # by mechanics, the dealer does not play by strategy, thus must stand on 17
             self.dealer.hit(self.deck)
+
+        time.sleep(1)
+        print("\n----------------------------------------------------------------")
+        print("                     ★ Final Results ★")
+        print("----------------------------------------------------------------")
+
+        self.show_all()
+        self.evaluate_winner()
 
     # function to print the cards before the result
     def show_some(self):
