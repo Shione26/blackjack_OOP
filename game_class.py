@@ -26,12 +26,18 @@ Game Rules:  Get as close to 21 as you can without going over!
     # function to print the cards before the result
     def show_some(self):
         print("Player's Hand:")
-        print(" ", self.player.show_hand())
-        print("Player's Hand =", self.player.hand_value())
+        print(" ", self.player.show_hand())     # display player's cards
+        print("Player's Hand =", self.player.hand_value())      # display player's cards value
 
         print("\nDealer's Hand:")
-        print(" ", self.dealer.show_hand(hide_first=True))
+        print(" ", self.dealer.show_hand(hide_first=True))      # display dealer's cards except the first one
 
     # function to print the cards for the final result
     def show_all(self):
-        pass
+        print("\nPlayer's Hand:")
+        print(" ", self.player.show_hand())     # display player's cards
+        print("Player's Hand =", self.player.hand_value())      # display player's cards value
+
+        print("\nDealer's Hand:")
+        print(" ", self.dealer.show_hand())     # display dealer's cards
+        print("Dealer's Hand =", self.dealer.hand_value())      # display dealer's cards value
