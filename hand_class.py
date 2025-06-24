@@ -21,3 +21,15 @@ class Hand:
 
     def get_value(self):
         return self._value
+    
+    def show(self, hide_first=False):   # if it's the player, shows all cards. If the dealer, hide the first card
+        if hide_first:      # if hide_first is true, it will loop to just reveal the second card and hide the first card for the dealer
+            card_strings = []       # list to store the string of each cards except the first one
+            for card in self._cards[1:]:    
+                card_strings.append(str(card))      # convert card to string and append to the list
+            return "<card hidden>\n  " + " ".join(card_strings)
+        else:       # else, list all cards normally for the player
+            card_strings = []
+            for card in self._cards:
+                card_strings.append(str(card))
+            return "\n  ".join(card_strings)
