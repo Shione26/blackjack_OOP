@@ -23,6 +23,29 @@ Game Rules:  Get as close to 21 as you can without going over!
             self.player.hit(self.deck)
             self.dealer.hit(self.deck)
         
+        # player's turn
+        while True:
+            self.show_some()
+
+            # checks if the player's card is above 21
+            if self.player.hand_value() > 21:
+                print("\n--- Player busts! ---")
+                return
+            
+            # player's move
+            move = input("\nWould you like to Hit or Stand? Enter [h/s] ").lower()
+            if move == 'h':
+                self.player.hit(self.deck)
+            elif move == 's':
+                print("Player stands. Dealer is playing.")
+                break
+            else:
+                print("Sorry, Invalid Input. Please enter [h/s].")
+    
+        # dealer's turn
+        while self.dealer.hand_value() < 17:    # by mechanics, the dealer does not play by strategy, thus must stand on 17
+            self.dealer.hit(self.deck)
+
     # function to print the cards before the result
     def show_some(self):
         print("Player's Hand:")
@@ -41,3 +64,5 @@ Game Rules:  Get as close to 21 as you can without going over!
         print("\nDealer's Hand:")
         print(" ", self.dealer.show_hand())     # display dealer's cards
         print("Dealer's Hand =", self.dealer.hand_value())      # display dealer's cards value
+
+        
